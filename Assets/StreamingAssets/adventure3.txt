@@ -1,0 +1,47 @@
+=== PAGE 1 ===
+You awaken inside a ring of floating lanterns. Nearby, the Archer Queen, Barbarian King, and a distracted Wizard debate an old legend: the Three Pig Artisans, whose final creation still hides a mysterious prize. One path leads toward a shimmering curtain of light. Another follows the distant roar of rushing water.
+
+[Enter the shimmering curtain -> 2]
+[Follow the rushing roar -> 3]
+
+=== PAGE 2 ===
+You step into a traveling illusion-carnival filled with ribbons, puppets, and laughing spectators. A masked Bandit flips coins while a vigilant Knight observes the crowd. A puppet show repeats a strange sequence: a piglet on four legs, a builder walking upright, and an elder pig leaning on a staff.
+
+[Approach the puppet-master -> 4]
+[Slip beyond the carnival tents -> 8]
+
+=== PAGE 3 ===
+The roaring sound leads to a towering waterfall crashing into a misty basin. Miners operate a creaking lift while a warm-sleeping Baby Dragon rests beside the machinery.
+
+[Ride the lift into the cliffside hollow -> 8]
+[Walk along the quiet misty ledge -> 6]
+
+=== PAGE 4 ===
+The puppet-master gestures toward your satchel. “You already carry what the gate requires.” You remove The Sphinx’s Riddle, its symbols glowing faintly. “The three pig builders lived the answer—four legs in youth, two in middle-age, three in age with a staff. Remember that.”
+
+[Study the glowing parchment -> 5]
+
+=== PAGE 5 ===
+A circular stair rises toward a silent stone gate marked with shifting footprints—hoofprints, then walking prints, then prints beside a cane.
+
+[Speak the life-steps aloud -> 7]
+[Return to the carnival grounds -> 2]
+
+=== PAGE 6 ===
+The ledge narrows into a peaceful overlook where drifting Healers glide above the mist. Nothing more calls you onward, and the journey slowly settles into stillness.
+
+[Play again -> restart]
+
+=== PAGE 7 ===
+ITEM: Shiny Red Apple
+
+You declare: “Piglet on four, builder on two, elder on three.” The gate opens gently, revealing a glowing Shiny Red Apple, the reward left by the Three Pig Artisans.
+
+Your story ends in quiet triumph.
+
+[Play again -> restart]
+
+=== PAGE 8 ===
+You arrive before the silent stone gate, but it does not react without the riddle’s spoken answer.
+
+[Return to the carnival grounds -> 2]

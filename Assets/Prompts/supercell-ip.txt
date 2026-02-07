@@ -1,0 +1,66 @@
+Clash of Clans Characters
+Heroes
+* Barbarian King — Massive melee leader wielding giant sword.
+* Archer Queen — Precise ranged hero with stealth ability.
+* Grand Warden — Support mage boosting nearby troops.
+* Royal Champion — Agile spear warrior targeting defenses.
+* Battle Machine — Builder Base mechanical smashing hero.
+* Battle Copter — Flying mechanical hero with ranged rockets.
+Home Village Troops
+* Barbarian — Fast melee raider with simple sword attacks.
+* Archer — Fragile ranged attacker firing accurate arrows.
+* Giant — High-health tank absorbing defensive damage.
+* Goblin — Resource-focused raider moving extremely fast.
+* Wall Breaker — Skeleton bomber specialized in destroying walls.
+* Balloon — Air unit dropping powerful bombs.
+* Wizard — Glass-cannon mage launching explosive fireballs.
+* Healer — Flying support unit restoring ally health.
+* Dragon — Durable flying attacker breathing destructive flames.
+* P.E.K.K.A — Heavy armored warrior delivering devastating melee strikes.
+* Baby Dragon — Small enraged dragon gaining solo damage bonus.
+* Miner — Underground troop surfacing directly beside targets.
+* Electro Dragon — Lightning dragon chaining electrical attacks between targets.
+* Yeti — Icy beast spawning damaging mini creatures.
+* Dragon Rider — Rider mounted on airborne dragon attacker.
+* Electro Titan — Towering warrior emitting damaging electrical aura.
+* Root Rider — Cavalry smashing through walls while charging forward.
+* Thrower — Long-range siege troop launching heavy projectiles.
+Dark Elixir Troops
+* Minion — Fast flying ranged demon attacker.
+* Hog Rider — Hammer-wielding rider jumping over walls.
+* Valkyrie — Spinning axe fighter hitting surrounding enemies.
+* Golem — Massive stone tank splitting into smaller units.
+* Witch — Summoner spawning skeleton warriors continuously.
+* Lava Hound — Air tank bursting into attacking lava pups.
+* Bowler — Giant throwing bouncing boulders.
+* Ice Golem — Freezing tank slowing enemies upon defeat.
+* Headhunter — Assassin targeting heroes with poisoned attacks.
+* Apprentice Warden — Support caster temporarily boosting troop survivability.
+* Druid — Nature spellcaster supporting troops with mystical effects.
+
+Clash Royale Characters
+* Knight — Balanced armored melee defender.
+* Archers — Twin ranged units with steady arrow attacks.
+* Giant — Slow tank targeting buildings.
+* Goblins — Cheap fast melee swarm attackers.
+* Valkyrie — Area-damage spinning melee fighter.
+* Wizard — Splash-damage ranged fire mage.
+* Witch — Skeleton-summoning ranged caster.
+* Prince — Charging lancer delivering massive impact damage.
+* Dark Prince — Shielded splash lancer with charge attack.
+* P.E.K.K.A — Extremely powerful single-target armored warrior.
+* Mini P.E.K.K.A — Smaller high-damage melee robot.
+* Hog Rider — Fast building-targeting jumping attacker.
+* Balloon — Air bomber targeting structures only.
+* Baby Dragon — Splash-damage flying dragon.
+* Electro Wizard — Dual-stun lightning caster.
+* Bandit — Dashing rogue briefly becoming untargetable.
+* Royal Ghost — Invisible melee spirit striking unexpectedly.
+* Magic Archer — Piercing arrow shooter hitting multiple targets.
+* Mother Witch — Transforms defeated enemies into cursed pigs.
+* Monk — Defensive hero reflecting incoming projectiles.
+* Golden Knight — Champion chaining dashes between enemies.
+* Skeleton King — Champion summoning skeleton army ability.
+* Archer Queen — Champion activating temporary invisibility rapid-fire ability.
+* Mighty Miner — Champion tunneling across arena with explosive switch.
+* Little Prince — Ranged champion summoning protective guardian.

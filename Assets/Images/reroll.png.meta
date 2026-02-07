@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1dd9aa094ac174529bc4325f838c37f2
+guid: 88000af249c6746dc9767317bca5b9f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4336098682989014322
-    second: gem-fake_0
+      213: 8076003320700759745
+    second: reroll_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gem-fake_0
+      name: reroll_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 86
+        width: 512
+        height: 166
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec29661b83513d3c0800000000000000
-      internalID: -4336098682989014322
+      spriteID: 1ce6e3f4b3ab31070800000000000000
+      internalID: 8076003320700759745
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gem-fake_0: -4336098682989014322
+      reroll_0: 8076003320700759745
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
