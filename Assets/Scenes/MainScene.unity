@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370.7153, y: 869.2846}
+  m_AnchoredPosition: {x: -370.7153, y: 849.2846}
   m_SizeDelta: {x: 101.5694, y: 101.5694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128635211
@@ -314,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -124.82469, y: 869.1042}
+  m_AnchoredPosition: {x: -124.82469, y: 849.1042}
   m_SizeDelta: {x: 306.0488, y: 102.8132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498446604
@@ -365,7 +365,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -511,22 +510,6 @@ MonoBehaviour:
   imageFolder: images
   splashScreen: {fileID: 1349576714}
   gemsLabel: {fileID: 1108620285}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3505b990e9f4e4b9beeae4ec7db45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ImageGenerator
-  proxyUrl: https://adventure-image-proxy.arun02139.workers.dev
-  targetImage: {fileID: 417958795}
-  defaultSize: 1024x1024
-  defaultQuality: low
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

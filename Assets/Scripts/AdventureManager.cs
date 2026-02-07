@@ -92,7 +92,6 @@ public class AdventureManager : MonoBehaviour
     public void Restart()
     {
         _visited.Clear();
-        _gems = 0;
         UpdateGemsDisplay();
 
         // Clear choice buttons
