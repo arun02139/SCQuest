@@ -1,0 +1,53 @@
+=== PAGE 1 ===
+IMAGE: A dimly lit forest clearing at dawn, mist rising from the ground, a narrow trail leading north, a stream visible to the east, fantasy painting style
+
+You wake up in a dimly lit forest clearing. The air smells of pine and damp earth. A narrow trail leads north, and you can hear running water to the east.
+
+[Follow the trail north -> 2]
+[Head toward the water -> 3]
+
+=== PAGE 2 ===
+IMAGE: A small medieval village with wooden houses along a dirt road, an old woman sitting on a porch, a weathered signpost pointing west, warm afternoon light, fantasy illustration
+
+The trail opens into a small village. A few wooden houses line a dirt road. An old woman sits on a porch, watching you. A signpost points west toward "The Ruins."
+
+[Talk to the old woman -> 4]
+[Head toward the ruins -> 5]
+
+=== PAGE 3 ===
+IMAGE: A gentle forest stream with a wooden bridge crossing it, a cave entrance carved into a mossy hillside on the far side, dappled sunlight, fantasy art style
+
+You push through the underbrush and find a gentle stream. A wooden bridge crosses it, and on the other side you see a cave entrance carved into a hillside.
+
+[Cross the bridge and enter the cave -> 5]
+[Follow the stream downstream -> 6]
+
+=== PAGE 4 ===
+IMAGE: A kind old woman on a wooden porch handing over a rusty iron key, warm smile, cozy village background, fantasy portrait style
+
+The old woman smiles. "Traveler, the ruins hold what you seek — but beware the guardian. Take this." She hands you a rusty iron key.
+
+[Thank her and head to the ruins -> 5]
+
+=== PAGE 5 ===
+IMAGE: Ancient moss-covered stone ruins, a heavy sealed door with glowing symbols and an iron lock, mysterious atmosphere, fantasy concept art
+
+Ancient stone walls rise around you, covered in moss. At the far end, a heavy door stands sealed with an iron lock. Strange symbols glow faintly on its surface.
+
+[Use the iron key on the door -> 7]
+[Turn back -> 2]
+
+=== PAGE 6 ===
+IMAGE: A peaceful lake at sunset, dragonflies dancing over the still water surface, reeds along the shore, serene and melancholic mood, fantasy landscape painting
+
+The stream leads to a peaceful lake. Dragonflies dance over the surface. There is nothing more to find here — only stillness. Your journey ends quietly by the water.
+
+[Play again -> restart]
+
+=== PAGE 7 ===
+IMAGE: A glowing chamber filled with golden light, a single gemstone hovering in the air at the center, ancient stone walls, triumphant and magical atmosphere, fantasy art
+GEMS: 1
+
+The key turns with a satisfying click. The door groans open, revealing a chamber filled with golden light. In the center, a single gemstone hovers in the air. You reach out and take it. Warmth floods through you. The adventure is over — you have found what you were looking for.
+
+[Play again -> restart]
