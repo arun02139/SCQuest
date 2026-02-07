@@ -15,8 +15,8 @@ public class AdventureBook
     {
         public int id;
         public string bodyText;
-        public string imagePrompt; // null if no image for this page
-        public int gems; // number of gems awarded when reaching this page
+        public string imagePrompt;
+        public string item; // null if no item reward on this page
         public List<Choice> choices;
     }
 
@@ -27,7 +27,7 @@ public class AdventureBook
     ///
     ///   === PAGE 1 ===
     ///   IMAGE: A dimly lit forest clearing at dawn, fantasy painting style
-    ///   GEMS: 1
+    ///   ITEM: Green Gem
     ///
     ///   Body text here, can span multiple lines.
     ///
@@ -37,8 +37,8 @@ public class AdventureBook
     ///
     /// Pages with no choices are endings.
     /// Target "restart" clears visited pages and goes back to page 1.
-    /// IMAGE: line is optional — if present, a static or AI image will be shown.
-    /// GEMS: line is optional — awards gems when the page is reached.
+    /// IMAGE: line is optional — if present, a static image will be shown.
+    /// ITEM: line is optional — awards an item when the page is reached.
     /// </summary>
     public static AdventureBook Parse(string raw)
     {
@@ -48,7 +48,7 @@ public class AdventureBook
         var pagePattern = new Regex(@"===\s*PAGE\s+(\d+)\s*===", RegexOptions.IgnoreCase);
         var choicePattern = new Regex(@"\[(.+?)\s*->\s*(\w+)\]");
         var imagePattern = new Regex(@"^IMAGE:\s*(.+)$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-        var gemsPattern = new Regex(@"^GEMS:\s*(\d+)\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        var itemPattern = new Regex(@"^ITEM:\s*(.+)$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
         var headerMatches = pagePattern.Matches(raw);
 
@@ -68,16 +68,16 @@ public class AdventureBook
             if (imageMatch.Success)
             {
                 imagePrompt = imageMatch.Groups[1].Value.Trim();
-                block = imagePattern.Replace(block, ""); // remove from body
+                block = imagePattern.Replace(block, "");
             }
 
-            // Pull out gems if present
-            int gems = 0;
-            var gemsMatch = gemsPattern.Match(block);
-            if (gemsMatch.Success)
+            // Pull out item if present
+            string item = null;
+            var itemMatch = itemPattern.Match(block);
+            if (itemMatch.Success)
             {
-                gems = int.Parse(gemsMatch.Groups[1].Value);
-                block = gemsPattern.Replace(block, ""); // remove from body
+                item = itemMatch.Groups[1].Value.Trim();
+                block = itemPattern.Replace(block, "");
             }
 
             // Pull out choices
@@ -105,7 +105,7 @@ public class AdventureBook
                 id = pageId,
                 bodyText = body,
                 imagePrompt = imagePrompt,
-                gems = gems,
+                item = item,
                 choices = choices
             };
         }

@@ -9,9 +9,9 @@ public class AdventureManager : MonoBehaviour
 {
     public static AdventureManager Instance { get; private set; }
 
-    [Header("Settings")]
-    [Tooltip("Filename inside StreamingAssets (e.g. adventure.txt)")]
-    public string bookFileName = "adventure.txt";
+    [Header("Adventures")]
+    [Tooltip("List of adventure filenames in StreamingAssets (e.g. adventure1.txt, adventure2.txt)")]
+    public string[] adventureFiles = { "adventure1.txt" };
 
     [Header("UI References")]
     public TMP_Text bodyLabel;
@@ -19,22 +19,32 @@ public class AdventureManager : MonoBehaviour
     public Button choiceButtonPrefab;
 
     [Header("Static Page Images (optional)")]
-    [Tooltip("Assign a RawImage to display pre-generated page images")]
     public RawImage pageImage;
-    [Tooltip("Subfolder inside StreamingAssets for page images (e.g. 'images')")]
     public string imageFolder = "images";
 
-    [Header("Splash Screen (optional)")]
-    [Tooltip("Assign to re-show splash on restart")]
+    [Header("Splash Screen")]
     public GameObject splashScreen;
+    [Tooltip("Subfolder in StreamingAssets for cover images (cover_001.jpg, cover_002.jpg, etc.)")]
+    public string coverFolder = "images";
+    [Tooltip("Total number of cover images available")]
+    public int coverCount = 3;
 
-    [Header("Gems")]
-    [Tooltip("Text label to display gem count (e.g. '💎 3')")]
-    public TMP_Text gemsLabel;
+    [Header("Hearts")]
+    public TMP_Text heartsLabel;
+    public int startingHearts = 3;
+
+    [Header("Game Over / Pay")]
+    [Tooltip("Image shown on Start button when hearts reach 0 (e.g. '$0.99 for 3 Hearts')")]
+    public Sprite paySprite;
+    [Tooltip("Original Start button image to restore after paying")]
+    public Sprite startSprite;
 
     private AdventureBook _book;
     private readonly HashSet<int> _visited = new();
-    private int _gems;
+    private int _hearts;
+    private int _currentAdventureIndex;
+    private int _currentCoverIndex;
+    private readonly List<string> _inventory = new();
 
     private void Awake()
     {
@@ -44,11 +54,14 @@ public class AdventureManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return LoadBook();
+        _hearts = startingHearts;
+        _currentAdventureIndex = 0;
+        UpdateHeartsDisplay();
+
+        yield return LoadBook(adventureFiles[_currentAdventureIndex]);
 
         if (_book != null && _book.Pages.ContainsKey(1))
         {
-            // If there's a splash screen, wait for the player to click Begin
             if (splashScreen == null || !splashScreen.activeSelf)
                 ShowPage(1);
         }
@@ -56,15 +69,13 @@ public class AdventureManager : MonoBehaviour
             bodyLabel.text = "Error: could not load adventure or missing PAGE 1.";
     }
 
-    private IEnumerator LoadBook()
+    private IEnumerator LoadBook(string fileName)
     {
-        // Build the path — use '/' separator since Path.Combine can break URLs on Web
         string basePath = Application.streamingAssetsPath;
-        string filePath = basePath + "/" + bookFileName;
+        string filePath = basePath + "/" + fileName;
 
         if (filePath.StartsWith("jar") || filePath.StartsWith("http"))
         {
-            // Web & Android: must use UnityWebRequest
             using var request = UnityWebRequest.Get(filePath);
             yield return request.SendWebRequest();
 
@@ -75,7 +86,6 @@ public class AdventureManager : MonoBehaviour
         }
         else
         {
-            // Editor, Windows, Mac, Linux: can read directly
             try
             {
                 string text = System.IO.File.ReadAllText(filePath);
@@ -89,56 +99,115 @@ public class AdventureManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when the player hits [Play again -> restart] (loses a heart).
+    /// </summary>
     public void Restart()
     {
         _visited.Clear();
-        UpdateGemsDisplay();
 
-        // Clear choice buttons
-        foreach (Transform child in choicesContainer)
-            Destroy(child.gameObject);
+        _hearts--;
+        UpdateHeartsDisplay();
 
-        bodyLabel.text = "";
+        ClearUI();
 
-        // Hide the image
-        if (pageImage != null)
+        // Game over — no hearts left
+        if (_hearts <= 0)
         {
-            pageImage.texture = null;
-            pageImage.color = new Color(1, 1, 1, 0);
+            ShowGameOver();
+            return;
         }
 
-        // Re-show splash screen if assigned
+        // Re-show splash screen
         if (splashScreen != null)
             splashScreen.SetActive(true);
         else
             ShowPage(1);
     }
 
-    private IEnumerator LoadPageImage(int pageId)
+    /// <summary>
+    /// Load the next adventure (or wrap around). Resets hearts to full.
+    /// </summary>
+    public void Reroll()
     {
-        string basePath = Application.streamingAssetsPath;
-        string filePath = basePath + "/" + imageFolder + "/" + pageId.ToString("D3") + ".jpg";
+        _visited.Clear();
+        _currentCoverIndex = (_currentCoverIndex + 1) % coverCount;
+        _currentAdventureIndex = _currentCoverIndex % adventureFiles.Length;
 
-        // Local platforms need file:// prefix for UnityWebRequestTexture
+        StartCoroutine(RerollCoroutine());
+    }
+
+    private IEnumerator RerollCoroutine()
+    {
+        yield return LoadBook(adventureFiles[_currentAdventureIndex]);
+        yield return LoadCoverImage(_currentCoverIndex);
+
+        if (splashScreen != null)
+            splashScreen.SetActive(true);
+        else
+            ShowPage(1);
+    }
+
+    private IEnumerator LoadCoverImage(int index)
+    {
+        if (splashScreen == null) yield break;
+
+        var splash = splashScreen.GetComponent<SplashScreen>();
+        if (splash == null || splash.coverImage == null)
+        {
+            Debug.LogWarning("SplashScreen or coverImage not assigned");
+            yield break;
+        }
+
+        string basePath = Application.streamingAssetsPath;
+        string fileName = "cover_" + (index + 1).ToString("D3") + ".jpg";
+        string filePath = string.IsNullOrEmpty(coverFolder)
+            ? basePath + "/" + fileName
+            : basePath + "/" + coverFolder + "/" + fileName;
+
         if (!filePath.StartsWith("jar") && !filePath.StartsWith("http"))
             filePath = "file://" + filePath;
 
-        // Try loading static image
+        Debug.Log($"Loading cover image: {filePath}");
+
         using var request = UnityWebRequestTexture.GetTexture(filePath);
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
         {
             var texture = DownloadHandlerTexture.GetContent(request);
-            pageImage.texture = texture;
-            pageImage.color = Color.white;
+            var sprite = Sprite.Create(texture,
+                new Rect(0, 0, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f));
+            splash.coverImage.sprite = sprite;
+            Debug.Log($"Cover image loaded successfully: {fileName}");
         }
         else
         {
-            // No image found — hide
-            pageImage.texture = null;
-            pageImage.color = new Color(1, 1, 1, 0);
+            Debug.LogWarning($"Cover image not found: {filePath} — {request.error}");
         }
+    }
+
+    /// <summary>
+    /// Called by the paid reroll button on the splash screen.
+    /// Cycles to the next cover image.
+    /// </summary>
+    public void PaidReroll()
+    {
+        // TODO: Add IAP verification here
+        _currentCoverIndex = (_currentCoverIndex + 1) % coverCount;
+        _currentAdventureIndex = _currentCoverIndex % adventureFiles.Length;
+
+        _hearts = startingHearts;
+        UpdateHeartsDisplay();
+
+        StartCoroutine(PaidRerollCoroutine());
+    }
+
+    private IEnumerator PaidRerollCoroutine()
+    {
+        yield return LoadBook(adventureFiles[_currentAdventureIndex]);
+        yield return LoadCoverImage(_currentCoverIndex);
     }
 
     public void ShowPage(int pageId)
@@ -159,14 +228,13 @@ public class AdventureManager : MonoBehaviour
         _visited.Add(pageId);
         bodyLabel.text = page.bodyText;
 
-        // Award gems
-        if (page.gems > 0)
+        // Award item if this page has one
+        if (!string.IsNullOrEmpty(page.item) && !_inventory.Contains(page.item))
         {
-            _gems += page.gems;
-            UpdateGemsDisplay();
+            _inventory.Add(page.item);
         }
 
-        // Load page image if we have a display for it
+        // Load page image
         if (pageImage != null)
             StartCoroutine(LoadPageImage(pageId));
 
@@ -174,13 +242,31 @@ public class AdventureManager : MonoBehaviour
         foreach (Transform child in choicesContainer)
             Destroy(child.gameObject);
 
+        // If this page awards an item, auto-reroll to next adventure instead of normal choices
+        if (!string.IsNullOrEmpty(page.item))
+        {
+            var btn = Instantiate(choiceButtonPrefab, choicesContainer);
+            btn.GetComponentInChildren<TMP_Text>().text = "Continue to next adventure";
+            btn.gameObject.SetActive(true);
+            btn.onClick.AddListener(() =>
+            {
+                _hearts--;
+                UpdateHeartsDisplay();
+                ClearUI();
+
+                if (_hearts <= 0)
+                {
+                    ShowGameOver();
+                    return;
+                }
+
+                Reroll();
+            });
+            return;
+        }
+
         foreach (var choice in page.choices)
         {
-            // Restart choices always show; others skip visited pages
-            if (choice.targetPageId != AdventureBook.RESTART
-                && _visited.Contains(choice.targetPageId))
-                continue;
-
             var btn = Instantiate(choiceButtonPrefab, choicesContainer);
             btn.GetComponentInChildren<TMP_Text>().text = choice.label;
             btn.gameObject.SetActive(true);
@@ -190,9 +276,93 @@ public class AdventureManager : MonoBehaviour
         }
     }
 
-    private void UpdateGemsDisplay()
+    private IEnumerator LoadPageImage(int pageId)
     {
-        if (gemsLabel != null)
-            gemsLabel.text = _gems.ToString();
+        string basePath = Application.streamingAssetsPath;
+        string adventureName = System.IO.Path.GetFileNameWithoutExtension(adventureFiles[_currentAdventureIndex]);
+        string filePath = basePath + "/" + imageFolder + "/" + adventureName + "/" + pageId.ToString("D3") + ".jpg";
+
+        if (!filePath.StartsWith("jar") && !filePath.StartsWith("http"))
+            filePath = "file://" + filePath;
+
+        Debug.Log($"Loading page image: {filePath}");
+
+        using var request = UnityWebRequestTexture.GetTexture(filePath);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            var texture = DownloadHandlerTexture.GetContent(request);
+            pageImage.texture = texture;
+            pageImage.color = Color.white;
+        }
+        else
+        {
+            Debug.LogWarning($"Page image not found: {filePath} — {request.error}");
+            pageImage.texture = null;
+            pageImage.color = new Color(1, 1, 1, 0);
+        }
+    }
+
+    private void ClearUI()
+    {
+        foreach (Transform child in choicesContainer)
+            Destroy(child.gameObject);
+
+        bodyLabel.text = "";
+
+        if (pageImage != null)
+        {
+            pageImage.texture = null;
+            pageImage.color = new Color(1, 1, 1, 0);
+        }
+    }
+
+    private void ShowGameOver()
+    {
+        if (splashScreen != null)
+        {
+            splashScreen.SetActive(true);
+
+            var splash = splashScreen.GetComponent<SplashScreen>();
+            if (splash != null && splash.beginButton != null)
+            {
+                var btnImg = splash.beginButton.GetComponent<Image>();
+
+                // Swap to pay image
+                if (paySprite != null && btnImg != null)
+                    btnImg.sprite = paySprite;
+
+                // Replace click: pay → refill hearts → restore start button
+                splash.beginButton.onClick.RemoveAllListeners();
+                splash.beginButton.onClick.AddListener(() =>
+                {
+                    // TODO: Add IAP verification here
+                    _hearts = startingHearts;
+                    UpdateHeartsDisplay();
+
+                    // Restore the start button image and normal behavior
+                    if (startSprite != null && btnImg != null)
+                        btnImg.sprite = startSprite;
+
+                    splash.beginButton.onClick.RemoveAllListeners();
+                    splash.beginButton.onClick.AddListener(() =>
+                    {
+                        splashScreen.SetActive(false);
+                        ShowPage(1);
+                    });
+                });
+            }
+        }
+        else
+        {
+            bodyLabel.text = "You have no hearts left. Game over!";
+        }
+    }
+
+    private void UpdateHeartsDisplay()
+    {
+        if (heartsLabel != null)
+            heartsLabel.text = _hearts.ToString();
     }
 }
