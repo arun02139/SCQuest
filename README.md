@@ -31,8 +31,11 @@ supercell-ip.txt [Link]
 make-adventure.txt [Link]
 
 AI acknolwdgements
+Cursor with ChatGPT 5.2 Codex for Unity
 Google Gemini 3 for image creation
 Claude 4.6 for code development
+ChatGPT 5.2 for script automation
+DeeVid for image to video (https://deevid.ai)
 
 Interesting notes
 The color concept (feature that links items accross adventures e.g. Yellow Tablet) was genertated on its own by the AI (Google Gemini 3)

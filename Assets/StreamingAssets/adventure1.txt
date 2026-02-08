@@ -1,45 +1,45 @@
 === PAGE 1 ===
 You wake up in a dimly lit forest clearing. The air smells of pine and damp earth. A narrow trail leads north, and you can hear running water to the east.
 
-[Follow the trail north -> 2]
-[Head toward the water -> 3]
+[Head toward the water ->video:01_01B.mp4-> 3]
+[Follow the trail north ->video:01_01A.mp4-> 2]
 
 === PAGE 2 ===
 The trail opens into a small village. A few wooden houses line a dirt road. An old woman sits on a porch, watching you. A signpost points west toward "The Ruins."
 
 [Talk to the old woman -> 4]
-[Head toward the ruins -> 8]
+[Head toward the ruins ->video:01_02B.mp4-> 8]
 
 === PAGE 3 ===
 You push through the underbrush and find a gentle stream. A wooden bridge crosses it, and on the other side you see a cave entrance carved into a hillside.
 
-[Cross the bridge and enter the cave -> 8]
-[Follow the stream downstream -> 6]
+[Follow the stream downstream ->video:01_03A.mp4-> 6]
+[Cross the bridge and enter the cave ->video:01_03B.mp4-> 8]
 
 === PAGE 4 ===
 The old woman smiles. "Traveler, the ruins hold what you seek — but beware the guardian. Take this." She hands you a rusty iron key.
 
-[Thank her and head to the ruins -> 5]
+[Thank her and head to the ruins ->video:01_04A.mp4-> 5]
 
 === PAGE 5 ===
 Ancient stone walls rise around you, covered in moss. At the far end, a heavy door stands sealed with an iron lock. Strange symbols glow faintly on its surface.
 
-[Use the iron key on the door -> 7]
-[Turn back -> 2]
+[Use the iron key on the door ->video:01_05A.mp4-> 7]
+[Turn back ->video:01_05B.mp4-> 2]
 
 === PAGE 6 ===
 The stream leads to a peaceful lake. Dragonflies dance over the surface. There is nothing more to find here — only stillness. Your journey ends quietly by the water.
 
-[Play again -> restart]
+[The End -> restart]
 
 === PAGE 7 ===
 ITEM: Green Gem
 
-The key turns with a satisfying click. The door groans open, revealing a chamber filled with golden light. In the center, a single gemstone hovers in the air. You reach out and take it. Warmth floods through you. The adventure is over — you have found what you were looking for.
+The key turns with a satisfying click. The door groans open, revealing a chamber filled with golden light. In the center, a single <color=#006400>gemstone</color> hovers in the air. You reach out and take it. Warmth floods through you. The adventure is over — you have found what you were looking for.
 
-[Play again -> restart]
+[The End -> restart]
 
 === PAGE 8 ===
 Ancient stone walls rise around you, covered in moss. At the far end, a heavy door stands sealed with an iron lock. Strange symbols glow faintly on its surface.
 
-[Turn back -> 2]
+[Turn back ->video:01_08A.mp4-> 2]

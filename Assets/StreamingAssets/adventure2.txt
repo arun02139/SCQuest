@@ -1,14 +1,14 @@
 === PAGE 1 ===
 You awaken beside the Nile floodplain during Egypt’s New Kingdom. Barges drift along distant canals while merchants guide donkey caravans toward nearby settlements.
 
-[Take the trade road -> 2]
-[Head to the canals -> 3]
+[Head to the canals ->video:02_01A.mp4-> 3]
+[Take the trade road ->video:02_01B.mp4-> 2]
 
 === PAGE 2 ===
-The road leads to a workers’ town building a royal monument. A towering foreign mercenary known locally as the Barbarian King supervises stone hauling, while an archer commander—nicknamed the Archer Queen by soldiers—oversees range drills outside the walls. A temple scribe notices your curiosity and invites you inside.
+The road leads to a workers’ town with a royal monument. A towering mercenary known as the Barbarian King supervises stone hauling, while an archer commander oversees range drills outside the walls. A temple scribe notices your curiosity and invites you inside.
 
-[Speak with the scribe -> 4]
 [Travel to the ruins -> 8]
+[Speak with the scribe -> 4]
 
 === PAGE 3 ===
 At the canal crossing, a group of traveling performers prepares a river barge. Among them is a quiet scholar people call the Grand Warden, said to have studied temple astronomy, while a spear-bearing scout—known simply as the Royal Champion—keeps watch along the embankment.
@@ -17,14 +17,14 @@ At the canal crossing, a group of traveling performers prepares a river barge. A
 [Follow the canal onward -> 6]
 
 === PAGE 4 ===
-Inside the scribal chamber, the priest studies your Green Gem and instructs you to place it into a carved solar basin. When sunlight strikes the gem, a narrow beam reflects onto a map etched into the wall, revealing a hidden desert route once used by expeditions sent during the reign of Hatshepsut.
+Inside the scribal chamber, the priest studies your <color=#006400>Green Gem</color> and instructs you to place it into a carved solar basin. When sunlight strikes the gem, a narrow beam reflects onto a map etched into the wall, revealing a hidden desert route once used by expeditions sent during the reign of Hatshepsut.
 [Follow the revealed path -> 5]
 
 === PAGE 5 ===
-You reach a partially buried temple complex where explorers have recently camped. A heavily armored traveler—called P.E.K.K.A by companions—attempts to rotate an ancient celestial mechanism but lacks the precise alignment. Nearby, a wandering engineer known as the Mighty Miner studies underground passageways, hoping to chart them for future expeditions.
+You reach a partially buried temple. A heavily armored traveler called P.E.K.K.A attempts to rotate an ancient celestial mechanism but lacks the precise alignment. Nearby, a wandering engineer known as the Mighty Miner studies underground passageways, hoping to chart them for future expeditions.
 
-[Align the mechanism -> 7]
 [Return to the village -> 2]
+[Align the mechanism -> 7]
 
 === PAGE 6 ===
 The canal leads to a royal logistics station where scribes record grain shipments headed to Thebes. A cheerful rider famous for leaping canal barriers—nicknamed the Hog Rider by dockworkers—arrives carrying tax reports from upriver. With no trace of the temple route here, your search reaches a dead end.
@@ -34,7 +34,7 @@ The canal leads to a royal logistics station where scribes record grain shipment
 === PAGE 7 ===
 ITEM: The Sphinx’s Riddle
 
-The aligned mechanism opens a concealed chamber containing a stone tablet known as The Sphinx’s Riddle, once presented to initiates who proved their understanding of Ma’at—truth, balance, and order. Word spreads quickly among the scattered adventurers you encountered along the journey: the scholar Warden, the armored wanderer, the canal scout, and the monument builders all recognize that the discovery belongs not to conquerors, but to those who preserve knowledge.
+The aligned mechanism opens a concealed chamber containing an ancient <color=#DAA520>stone tablet</color>, once presented to initiates who proved their understanding of Ma’at—truth, balance, and order. Word spreads quickly among the scattered adventurers you encountered along the journey: the scholar Warden, the armored wanderer, the canal scout, and the monument builders all recognize that the discovery belongs not to conquerors, but to those who preserve knowledge.
 
 [Play again -> restart]
 

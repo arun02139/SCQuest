@@ -9,6 +9,7 @@ public class AdventureBook
     {
         public string label;
         public int targetPageId; // RESTART (-1) means restart the game
+        public string video;     // null if no video, otherwise filename (e.g. "chest_open.mp4")
     }
 
     public struct Page
@@ -16,7 +17,7 @@ public class AdventureBook
         public int id;
         public string bodyText;
         public string imagePrompt;
-        public string item; // null if no item reward on this page
+        public string item;
         public List<Choice> choices;
     }
 
@@ -32,6 +33,7 @@ public class AdventureBook
     ///   Body text here, can span multiple lines.
     ///
     ///   [Choice label -> 2]
+    ///   [Choice with video ->video:clip.mp4-> 2]
     ///   [Another choice -> 3]
     ///   [Play again -> restart]
     ///
@@ -39,14 +41,15 @@ public class AdventureBook
     /// Target "restart" clears visited pages and goes back to page 1.
     /// IMAGE: line is optional — if present, a static image will be shown.
     /// ITEM: line is optional — awards an item when the page is reached.
+    /// VIDEO on choices: ->video:filename.mp4-> plays clip before navigating.
     /// </summary>
     public static AdventureBook Parse(string raw)
     {
         var book = new AdventureBook();
 
-        // Split on page headers
         var pagePattern = new Regex(@"===\s*PAGE\s+(\d+)\s*===", RegexOptions.IgnoreCase);
-        var choicePattern = new Regex(@"\[(.+?)\s*->\s*(\w+)\]");
+        // Matches both: [label -> target] and [label ->video:file.mp4-> target]
+        var choicePattern = new Regex(@"\[(.+?)\s*->(?:video:(.+?)->)?\s*(\w+)\]");
         var imagePattern = new Regex(@"^IMAGE:\s*(.+)$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
         var itemPattern = new Regex(@"^ITEM:\s*(.+)$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
@@ -57,12 +60,10 @@ public class AdventureBook
             var match = headerMatches[i];
             int pageId = int.Parse(match.Groups[1].Value);
 
-            // Extract the block of text between this header and the next (or end)
             int blockStart = match.Index + match.Length;
             int blockEnd = (i + 1 < headerMatches.Count) ? headerMatches[i + 1].Index : raw.Length;
             string block = raw.Substring(blockStart, blockEnd - blockStart);
 
-            // Pull out image prompt if present
             string imagePrompt = null;
             var imageMatch = imagePattern.Match(block);
             if (imageMatch.Success)
@@ -71,7 +72,6 @@ public class AdventureBook
                 block = imagePattern.Replace(block, "");
             }
 
-            // Pull out item if present
             string item = null;
             var itemMatch = itemPattern.Match(block);
             if (itemMatch.Success)
@@ -80,12 +80,14 @@ public class AdventureBook
                 block = itemPattern.Replace(block, "");
             }
 
-            // Pull out choices
             var choices = new List<Choice>();
             var choiceMatches = choicePattern.Matches(block);
             foreach (Match cm in choiceMatches)
             {
-                string target = cm.Groups[2].Value.Trim();
+                string video = cm.Groups[2].Success && cm.Groups[2].Length > 0
+                    ? cm.Groups[2].Value.Trim()
+                    : null;
+                string target = cm.Groups[3].Value.Trim();
                 int targetId = target.ToLowerInvariant() == "restart"
                     ? RESTART
                     : int.Parse(target);
@@ -93,11 +95,11 @@ public class AdventureBook
                 choices.Add(new Choice
                 {
                     label = cm.Groups[1].Value.Trim(),
-                    targetPageId = targetId
+                    targetPageId = targetId,
+                    video = video
                 });
             }
 
-            // Body text is everything with the choice lines removed, trimmed
             string body = choicePattern.Replace(block, "").Trim();
 
             book.Pages[pageId] = new Page
