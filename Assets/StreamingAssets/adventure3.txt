@@ -1,20 +1,20 @@
 === PAGE 1 ===
 You awaken inside a ring of floating lanterns. Nearby, a King, Queen, and Wizard discuss an old legend about three Pig Artisans, whose final creation remains a mystery. You see a curtain of light and hear the distant roar of rushing water.
 
-[Enter the shimmering curtain -> 2]
-[Follow the roar of water -> 3]
+[Enter the shimmering curtain ->video:03_01A.mp4-> 2]
+[Follow the roar of water ->video:03_01B.mp4-> 3]
 
 === PAGE 2 ===
 You step into a traveling carnival filled with ribbons, puppets, and laughing spectators. A Bandit flips coins while a Knight observes the crowd. The puppet show repeats a strange sequence: a piglet on four legs, a builder walking upright, and an elder pig leaning on a staff.
 
-[Approach the puppet-master -> 4]
-[Slip beyond the carnival tents -> 8]
+[Approach the puppet-master ->video:03_02A.mp4-> 4]
+[Slip beyond the carnival tents ->video:03_02B.mp4-> 8]
 
 === PAGE 3 ===
 The roaring sound leads to a towering waterfall crashing into a misty basin. Miners operate a creaking lift while a warm-sleeping Baby Dragon rests beside the machinery.
 
-[Walk along the quiet misty ledge -> 6]
-[Ride the lift into the cliffside hollow -> 8]
+[Walk along the quiet misty ledge ->video:03_05B.mp4-> 6]
+[Ride the lift into the cliffside hollow ->video:03_03A.mp4-> 8]
 
 === PAGE 4 ===
 The puppet-master gestures toward your satchel. “You already carry what the gate requires.” You remove <color=#DAA520>The Sphinx’s Riddle</color>, its symbols glowing faintly. “The three pigs lived out the answer - four legs in youth, two in middle-age, three in old age. Remember that.”
@@ -25,7 +25,7 @@ The puppet-master gestures toward your satchel. “You already carry what the ga
 A circular stair rises toward a silent stone gate marked with shifting footprints - hoofprints, then walking prints, then prints beside a cane.
 
 [Return to the carnival grounds -> 2]
-[Speak the life-steps aloud -> 7]
+[Speak the life-steps aloud ->video:03_03B.mp4-> 7]
 
 === PAGE 6 ===
 The ledge narrows into a peaceful overlook where drifting Healers glide above the mist. Nothing more calls you onward, and the journey slowly settles into stillness.

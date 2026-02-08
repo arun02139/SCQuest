@@ -37,11 +37,13 @@ public class AdventureManager : MonoBehaviour
     public TMP_Text heartsLabel;
     public int startingHearts = 3;
 
-    [Header("Game Over / Pay")]
-    [Tooltip("Image shown on Start button when hearts reach 0 (e.g. '$0.99 for 3 Hearts')")]
-    public Sprite paySprite;
-    [Tooltip("Original Start button image to restore after paying")]
-    public Sprite startSprite;
+    [Header("Button Images (one per adventure)")]
+    [Tooltip("Start button images, one per adventure (index 0 = adventure 1)")]
+    public Sprite[] startSprites;
+    [Tooltip("Pay button images, one per adventure")]
+    public Sprite[] paySprites;
+    [Tooltip("Reroll button images, one per adventure")]
+    public Sprite[] rerollSprites;
 
     [Header("Level")]
     public TMP_Text levelLabel;
@@ -77,6 +79,7 @@ public class AdventureManager : MonoBehaviour
         _currentAdventureIndex = 0;
         UpdateHeartsDisplay();
         UpdateLevelDisplay();
+        UpdateButtonImages();
 
         yield return LoadBook(adventureFiles[_currentAdventureIndex]);
 
@@ -171,6 +174,7 @@ public class AdventureManager : MonoBehaviour
     {
         yield return LoadBook(adventureFiles[_currentAdventureIndex]);
         yield return LoadCoverImage(_currentCoverIndex);
+        UpdateButtonImages();
 
         if (splashScreen != null)
             splashScreen.SetActive(true);
@@ -501,8 +505,10 @@ public class AdventureManager : MonoBehaviour
             if (splash != null && splash.beginButton != null)
             {
                 var btnImg = splash.beginButton.GetComponent<Image>();
+                int idx = _currentCoverIndex;
 
                 // Swap to pay image
+                Sprite paySprite = (paySprites != null && idx < paySprites.Length) ? paySprites[idx] : null;
                 if (paySprite != null && btnImg != null)
                     btnImg.sprite = paySprite;
 
@@ -514,7 +520,8 @@ public class AdventureManager : MonoBehaviour
                     _hearts = startingHearts;
                     UpdateHeartsDisplay();
 
-                    // Restore the start button image and normal behavior
+                    // Restore the start button image
+                    Sprite startSprite = (startSprites != null && idx < startSprites.Length) ? startSprites[idx] : null;
                     if (startSprite != null && btnImg != null)
                         btnImg.sprite = startSprite;
 
@@ -543,6 +550,31 @@ public class AdventureManager : MonoBehaviour
     {
         if (levelLabel != null)
             levelLabel.text = _level.ToString();
+    }
+
+    private void UpdateButtonImages()
+    {
+        if (splashScreen == null) return;
+        var splash = splashScreen.GetComponent<SplashScreen>();
+        if (splash == null) return;
+
+        int idx = _currentCoverIndex;
+
+        // Update start button
+        if (splash.beginButton != null && startSprites != null && idx < startSprites.Length)
+        {
+            var img = splash.beginButton.GetComponent<Image>();
+            if (img != null)
+                img.sprite = startSprites[idx];
+        }
+
+        // Update reroll button
+        if (splash.rerollButton != null && rerollSprites != null && idx < rerollSprites.Length)
+        {
+            var img = splash.rerollButton.GetComponent<Image>();
+            if (img != null)
+                img.sprite = rerollSprites[idx];
+        }
     }
 
     /// <summary>

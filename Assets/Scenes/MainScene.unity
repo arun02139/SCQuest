@@ -532,8 +532,18 @@ MonoBehaviour:
   coverCount: 3
   heartsLabel: {fileID: 983914054}
   startingHearts: 3
-  paySprite: {fileID: -2783491123447330241, guid: e6cbfaeca8e3f4b298f5f4af564a1ca9, type: 3}
-  startSprite: {fileID: 3980168229369012863, guid: a046b36ed1ea942f3b48f53a18fdf728, type: 3}
+  startSprites:
+  - {fileID: 3980168229369012863, guid: a046b36ed1ea942f3b48f53a18fdf728, type: 3}
+  - {fileID: 8586434171926553505, guid: b2285b811309a443cab2b62688862c44, type: 3}
+  - {fileID: -8685155174986030031, guid: 9b2470841d0524890ac70b71a38702d0, type: 3}
+  paySprites:
+  - {fileID: -2783491123447330241, guid: e6cbfaeca8e3f4b298f5f4af564a1ca9, type: 3}
+  - {fileID: 3705701115448581475, guid: 67b420f5fcd3d41b1b4801ffe09819f0, type: 3}
+  - {fileID: 6104466725547839998, guid: d6f89f260106e4922a052ed3e9dfd640, type: 3}
+  rerollSprites:
+  - {fileID: 8076003320700759745, guid: 88000af249c6746dc9767317bca5b9f6, type: 3}
+  - {fileID: -3065586950887289942, guid: 5819b032cbd724d9a8896984d4e69d35, type: 3}
+  - {fileID: 2871339225246042461, guid: 4a30f6c4854ea461e971e775fcf1dd39, type: 3}
   levelLabel: {fileID: 1720750664}
   videoPlayer: {fileID: 747981595}
   videoDisplay: {fileID: 139027551}

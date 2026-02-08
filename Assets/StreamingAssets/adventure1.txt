@@ -35,7 +35,7 @@ The stream leads to a peaceful lake. Dragonflies dance over the surface. There i
 === PAGE 7 ===
 ITEM: Green Gem
 
-The key turns with a satisfying click. The door groans open, revealing a chamber filled with golden light. In the center, a single <color=#006400>gemstone</color> hovers in the air. You reach out and take it. Warmth floods through you. The adventure is over — you have found what you were looking for.
+The key turns with a satisfying click. The door groans open, revealing a chamber filled with light. In the center, a single <color=#006400>gemstone</color> hovers in the air. You reach out and take it. Warmth floods through you. The adventure is over — you have found what you were looking for.
 
 [The End -> restart]
 

@@ -7,24 +7,24 @@ You awaken beside the Nile floodplain during Egypt’s New Kingdom. Barges drift
 === PAGE 2 ===
 The road leads to a workers’ town with a royal monument. A towering mercenary known as the Barbarian King supervises stone hauling, while an archer commander oversees range drills outside the walls. A temple scribe notices your curiosity and invites you inside.
 
-[Travel to the ruins -> 8]
-[Speak with the scribe -> 4]
+[Travel to the ruins ->video:02_02A.mp4-> 8]
+[Speak with the scribe ->video:02_02B.mp4-> 4]
 
 === PAGE 3 ===
 At the canal crossing, a group of traveling performers prepares a river barge. Among them is a quiet scholar people call the Grand Warden, said to have studied temple astronomy, while a spear-bearing scout—known simply as the Royal Champion—keeps watch along the embankment.
 
-[Cross to the shrine -> 8]
-[Follow the canal onward -> 6]
+[Cross to the shrine ->video:02_03A.mp4-> 8]
+[Follow the canal onward ->video:02_03B.mp4-> 6]
 
 === PAGE 4 ===
 Inside the scribal chamber, the priest studies your <color=#006400>Green Gem</color> and instructs you to place it into a carved solar basin. When sunlight strikes the gem, a narrow beam reflects onto a map etched into the wall, revealing a hidden desert route once used by expeditions sent during the reign of Hatshepsut.
-[Follow the revealed path -> 5]
+[Follow the revealed path ->video:02_04A.mp4-> 5]
 
 === PAGE 5 ===
 You reach a partially buried temple. A heavily armored traveler called P.E.K.K.A attempts to rotate an ancient celestial mechanism but lacks the precise alignment. Nearby, a wandering engineer known as the Mighty Miner studies underground passageways, hoping to chart them for future expeditions.
 
-[Return to the village -> 2]
-[Align the mechanism -> 7]
+[Return to the village ->video:02_05A.mp4-> 2]
+[Align the mechanism ->video:02_05B.mp4-> 7]
 
 === PAGE 6 ===
 The canal leads to a royal logistics station where scribes record grain shipments headed to Thebes. A cheerful rider famous for leaping canal barriers—nicknamed the Hog Rider by dockworkers—arrives carrying tax reports from upriver. With no trace of the temple route here, your search reaches a dead end.
@@ -41,4 +41,4 @@ The aligned mechanism opens a concealed chamber containing an ancient <color=#DA
 === PAGE 8 ===
 You arrive at the ruins, but without activating the temple’s ancient mechanism the inner sanctuary remains sealed by shifting stone corridors.
 
-[Return to the settlement -> 2]
+[Return to the settlement ->video:02_08A.mp4-> 2]
