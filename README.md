@@ -32,7 +32,6 @@ make-adventure.txt [Link]
 
 AI acknolwdgements
 Text-to-voice with X&Immersion (Event Partner)
-Brainstorming with Rosebud (Event Partner)
 Cursor with ChatGPT 5.2 Codex for Unity
 Google Gemini 3 for image creation
 Claude 4.6 for code development
