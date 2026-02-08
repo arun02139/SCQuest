@@ -13,7 +13,7 @@ You step into a traveling carnival filled with ribbons, puppets, and laughing sp
 === PAGE 3 ===
 The roaring sound leads to a towering waterfall crashing into a misty basin. Miners operate a creaking lift while a warm-sleeping Baby Dragon rests beside the machinery.
 
-[Walk along the quiet misty ledge ->video:03_05B.mp4-> 6]
+[Walk along the quiet misty ledge ->video:03_03B.mp4-> 6]
 [Ride the lift into the cliffside hollow ->video:03_03A.mp4-> 8]
 
 === PAGE 4 ===
@@ -25,7 +25,7 @@ The puppet-master gestures toward your satchel. “You already carry what the ga
 A circular stair rises toward a silent stone gate marked with shifting footprints - hoofprints, then walking prints, then prints beside a cane.
 
 [Return to the carnival grounds -> 2]
-[Speak the life-steps aloud ->video:03_03B.mp4-> 7]
+[Speak the life-steps aloud ->video:03_05B.mp4-> 7]
 
 === PAGE 6 ===
 The ledge narrows into a peaceful overlook where drifting Healers glide above the mist. Nothing more calls you onward, and the journey slowly settles into stillness.

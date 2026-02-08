@@ -17,11 +17,11 @@ At the canal crossing, a group of traveling performers prepares a river barge. A
 [Follow the canal onward ->video:02_03B.mp4-> 6]
 
 === PAGE 4 ===
-Inside the scribal chamber, the priest studies your <color=#006400>Green Gem</color> and instructs you to place it into a carved solar basin. When sunlight strikes the gem, a narrow beam reflects onto a map etched into the wall, revealing a hidden desert route once used by expeditions sent during the reign of Hatshepsut.
+Inside the scribal chamber, the priest studies your <color=#006400>Green Gem</color> and instructs you to place it into a carved basin. When sunlight strikes the gem, a narrow beam reflects onto a map etched into the wall, revealing a hidden desert route once used during the reign of Hatshepsut.
 [Follow the revealed path ->video:02_04A.mp4-> 5]
 
 === PAGE 5 ===
-You reach a partially buried temple. A heavily armored traveler called P.E.K.K.A attempts to rotate an ancient celestial mechanism but lacks the precise alignment. Nearby, a wandering engineer known as the Mighty Miner studies underground passageways, hoping to chart them for future expeditions.
+You reach a partially buried temple. A heavily armored traveler called P.E.K.K.A attempts to rotate the ancient celestial mechanism, but lacks the precise alignment. You notice that the etchings match with those inscribed on your <color=#006400>gemstone</color>.
 
 [Return to the village ->video:02_05A.mp4-> 2]
 [Align the mechanism ->video:02_05B.mp4-> 7]
@@ -34,7 +34,7 @@ The canal leads to a royal logistics station where scribes record grain shipment
 === PAGE 7 ===
 ITEM: The Sphinx’s Riddle
 
-The aligned mechanism opens a concealed chamber containing an ancient <color=#DAA520>stone tablet</color>, once presented to initiates who proved their understanding of Ma’at—truth, balance, and order. Word spreads quickly among the scattered adventurers you encountered along the journey: the scholar Warden, the armored wanderer, the canal scout, and the monument builders all recognize that the discovery belongs not to conquerors, but to those who preserve knowledge.
+The aligned mechanism opens a concealed chamber with a <color=#DAA520>stone tablet</color> that was once presented to initiates of Ma’at, the God of truth, balance, and order. Word spreads quickly among the scattered adventurers you encountered along your journey who now recognize that the discovery belongs not to conquerors, but to those who preserve knowledge.
 
 [Play again -> restart]
 

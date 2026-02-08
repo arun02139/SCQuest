@@ -26,6 +26,12 @@ public class AdventureManager : MonoBehaviour
     public RawImage pageImage;
     public string imageFolder = "images";
 
+    [Header("Page Audio")]
+    [Tooltip("AudioSource to play page narration")]
+    public AudioSource narrationSource;
+    [Tooltip("Subfolder in StreamingAssets for audio files (e.g. 'audio')")]
+    public string audioFolder = "audio";
+
     [Header("Splash Screen")]
     public GameObject splashScreen;
     [Tooltip("Subfolder in StreamingAssets for cover images (cover_001.jpg, cover_002.jpg, etc.)")]
@@ -276,6 +282,10 @@ public class AdventureManager : MonoBehaviour
         if (pageImage != null)
             StartCoroutine(LoadPageImage(pageId));
 
+        // Play page narration audio
+        if (narrationSource != null)
+            StartCoroutine(LoadAndPlayAudio(pageId));
+
         // Precache any videos on this page's choices
         PrecacheVideos(page);
 
@@ -478,6 +488,36 @@ public class AdventureManager : MonoBehaviour
         _imageLoading = false;
     }
 
+    private IEnumerator LoadAndPlayAudio(int pageId)
+    {
+        // Stop any currently playing narration
+        if (narrationSource.isPlaying)
+            narrationSource.Stop();
+
+        string basePath = Application.streamingAssetsPath;
+        string adventureName = System.IO.Path.GetFileNameWithoutExtension(adventureFiles[_currentAdventureIndex]);
+        string filePath = basePath + "/" + audioFolder + "/" + adventureName + "/" + pageId.ToString("D3") + ".wav";
+
+        if (!filePath.StartsWith("jar") && !filePath.StartsWith("http"))
+            filePath = "file://" + filePath;
+
+        Debug.Log($"Loading audio: {filePath}");
+
+        using var request = UnityWebRequestMultimedia.GetAudioClip(filePath, AudioType.WAV);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            var clip = DownloadHandlerAudioClip.GetContent(request);
+            narrationSource.clip = clip;
+            narrationSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"Audio not found: {filePath} — {request.error}");
+        }
+    }
+
     private void ClearUI()
     {
         foreach (Transform child in choicesContainer)
@@ -493,6 +533,10 @@ public class AdventureManager : MonoBehaviour
             pageImage.texture = null;
             pageImage.color = new Color(1, 1, 1, 0);
         }
+
+        // Stop narration when clearing
+        if (narrationSource != null && narrationSource.isPlaying)
+            narrationSource.Stop();
     }
 
     private void ShowGameOver()
