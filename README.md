@@ -8,7 +8,7 @@ Rules
 - Players power up with Items from successful runs
 
 Content generation
-We start with a random theme from a starting pool of 3 genres (Adventure, History, or Fairy Tail), mash the story up with SUPERCELL IP, and add 2 level design Parameters: Player Level and Items (we use the Clash of Clans and Clash Royal IP to keep stories within a generic universe of role-based characters, e.g. The Prince vs. Leo). Items can be anything, for example Green Gem, Barbarian Sword, Statue of Liberty etc. [Link]
+We start with a random theme from a starting pool of 3 genres (Adventure, History, or Fairy Tail), mash the story up with SUPERCELL IP, and add 2 level design Parameters: Player Level and Items (we use the Clash of Clans and Clash Royal IP to keep stories within a generic universe of role-based characters, e.g. The Prince vs. Leo). Actions are used as prompts to generate short video clips for each still image that is not a leaf node. Text-to-voice is a straightforward and free app improvement for accessibility and localization. Items can be anything, for example Green Gem, Barbarian Sword, Statue of Liberty etc. [Link]
 
 Prompt example (image, Gemini 3)
 Make a 1024x1024 image black-and-white Choose Your Own Adventure style illustration set in the Clash of Clans universe for the [INJECT_GENRE] genre (no text, single panel) for the following scene: [INJECT_SCENE_DESCRIPTION]. [Link]
@@ -31,6 +31,8 @@ supercell-ip.txt [Link]
 make-adventure.txt [Link]
 
 AI acknolwdgements
+Text-to-voice with X&Immersion (Event Partner)
+Brainstorming with Rosebud (Event Partner)
 Cursor with ChatGPT 5.2 Codex for Unity
 Google Gemini 3 for image creation
 Claude 4.6 for code development
