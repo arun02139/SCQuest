@@ -27,14 +27,14 @@ You reach a partially buried temple. A heavily armored traveler called P.E.K.K.A
 [Align the mechanism ->video:02_05B.mp4-> 7]
 
 === PAGE 6 ===
-The canal leads to a royal logistics station where scribes record grain shipments headed to Thebes. A cheerful rider famous for leaping canal barriers—nicknamed the Hog Rider by dockworkers—arrives carrying tax reports from upriver. With no trace of the temple route here, your search reaches a dead end.
+The canal leads to a logistics station where scribes record grain shipments headed to Thebes. A cheerful rider nicknamed the Hog Rider by dockworkers arrives carrying tax reports from upriver. With no trace of the temple route here, your search reaches a dead end.
 
 [Play again -> restart]
 
 === PAGE 7 ===
 ITEM: The Sphinx’s Riddle
 
-The aligned mechanism opens a concealed chamber with a <color=#DAA520>stone tablet</color> that was once presented to initiates of Ma’at, the God of truth, balance, and order. Word spreads quickly among the scattered adventurers you encountered along your journey who now recognize that the discovery belongs not to conquerors, but to those who preserve knowledge.
+The aligned mechanism opens a concealed chamber with a <color=#DAA520>stone tablet</color> that was once presented to initiates of Ma’at, God of truth, balance, and order. Word spreads quickly that discovery belongs not to conquerors, but to those who preserve knowledge.
 
 [Play again -> restart]
 
